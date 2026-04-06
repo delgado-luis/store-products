@@ -43,5 +43,9 @@
 
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true,
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
   }
 }

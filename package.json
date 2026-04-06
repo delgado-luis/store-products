@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "tsx watch src/app.ts",
     "build": "tsc",
-    "start": "npm run build && node dist/app.js"
+    "start": "npm run build && node dist/app.js",
+    "typeorm": "tsx node_modules/typeorm/cli.js",
+    "m:generate": "npm run typeorm -- migration:generate -d src/database/data-source.ts src/database/migrations/%npm_config_name% --pretty",
+    "m:create": "npm run typeorm -- migration:create src/database/migrations/%npm_config_name%",
+    "m:run": "npm run typeorm -- migration:run -d src/database/data-source.ts",
+    "m:revert": "npm run typeorm -- migration:revert -d src/database/data-source.ts",
+    "m:show": "npm run typeorm -- migration:show -d src/database/data-source.ts"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +27,9 @@
   "dependencies": {
     "dotenv": "^17.4.1",
     "env-var": "^7.5.0",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.20.0",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.28"
   }
 }
